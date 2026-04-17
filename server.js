@@ -1,9 +1,7 @@
 const express = require('express');
 const cors = require('cors'); 
 const app = express();
-
-// Updated PORT declaration to support environment variables (like when deploying to Heroku/Render)
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.use(cors()); 
 app.use(express.json());
@@ -44,8 +42,5 @@ app.post('/api/analyze', (req, res) => {
     });
 });
 
-// Updated app.listen code
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
 module.exports = app;
